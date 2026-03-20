@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #9b59b6;
+            --text-color: #2c3e50;
+            --light-gray: #f8f9fa;
+            --border-color: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .header-content h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+        
+        /* Section Styles */
+        section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .summary-content {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Experience/Project Cards */
+        .experience-grid {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .experience-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .card-company {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .card-meta {
+            display: flex;
+            gap: 15px;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+        
+        .card-description {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .card-description ul {
+            list-style-type: disc;
+        }
+        
+        .card-description li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .portfolio-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border-color);
+        }
+        
+        .portfolio-title {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .portfolio-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .portfolio-btn:hover {
+            background: #2980b9;
+        }
+        
+        /* Skills Section */
+        .skills-content {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-content h2 {
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                gap: 15px;
+                flex-direction: column;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .card-meta {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>{{ site.data.experiences.personal.name }}</h1>
+                <h2>{{ site.data.experiences.personal.title }}</h2>
+                <div class="education">{{ site.data.experiences.personal.education }}</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        {{ site.data.experiences.personal.phone }}
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        {{ site.data.experiences.personal.email }}
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        {{ site.data.experiences.personal.location }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Summary Section -->
+        <section>
+            <h2 class="section-title">个人简介</h2>
+            <div class="summary-content">
+                {{ site.data.experiences.summary | markdownify }}
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section>
+            <h2 class="section-title">实习经历</h2>
+            <div class="experience-grid">
+                {% for exp in site.data.experiences.experiences %}
+                <div class="experience-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">{{ exp.title }}</h3>
+                            <div class="card-company">{{ exp.company }}</div>
+                        </div>
+                        <div class="card-meta">
+                            <span>{{ exp.period }}</span>
+                            <span>{{ exp.location }}</span>
+                        </div>
+                    </div>
+                    <div class="card-description">
+                        {{ exp.description | markdownify }}
+                    </div>
+                    {% if exp.portfolio.size > 0 %}
+                    <div class="portfolio-section">
+                        <div class="portfolio-title">相关作品集</div>
+                        <div class="portfolio-buttons">
+                            {% for item in exp.portfolio %}
+                            <button class="portfolio-btn" onclick="window.open('{{ '/assets/pdfs/' | append: item.file }}', '_blank')">
+                                {{ item.title }}
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section>
+            <h2 class="section-title">竞赛项目</h2>
+            <div class="experience-grid">
+                {% for project in site.data.experiences.projects %}
+                <div class="experience-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">{{ project.title }}</h3>
+                            <div class="card-company">{{ project.company }}</div>
+                        </div>
+                        <div class="card-meta">
+                            <span>{{ project.period }}</span>
+                            {% if project.location != "" %}
+                            <span>{{ project.location }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-description">
+                        {{ project.description | markdownify }}
+                    </div>
+                    {% if project.portfolio.size > 0 %}
+                    <div class="portfolio-section">
+                        <div class="portfolio-title">相关作品集</div>
+                        <div class="portfolio-buttons">
+                            {% for item in project.portfolio %}
+                            <button class="portfolio-btn" onclick="window.open('{{ '/assets/pdfs/' | append: item.file }}', '_blank')">
+                                {{ item.title }}
+                            </button>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section>
+            <h2 class="section-title">技能证书</h2>
+            <div class="skills-content">
+                {{ site.data.experiences.skills | markdownify }}
+            </div>
+        </section>
+        
+        <!-- Interests Section -->
+        <section>
+            <h2 class="section-title">兴趣爱好</h2>
+            <div class="summary-content">
+                {{ site.data.experiences.interests | markdownify }}
+            </div>
+        </section>
+    </div>
+</body>
+</html>

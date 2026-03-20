@@ -1,0 +1,19 @@
+# Site Settings
+title: "范家荣 - AI人才简历"
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "default"
+
+# Author
+author:
+  name: "范家荣"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
